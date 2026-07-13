@@ -79,8 +79,9 @@ rtl = st.session_state.lang in RTL_LANGS
 st.markdown(
     f"""
     <style>
+    header[data-testid="stHeader"] {{ display: none; }}
     .stApp {{ direction: {"rtl" if rtl else "ltr"}; }}
-    .block-container {{ max-width: 560px; padding-top: 1.5rem; }}
+    .block-container {{ max-width: 560px; padding-top: 2.5rem; }}
     div.stButton > button {{ width: 100%; border-radius: 999px; font-weight: 700; }}
     </style>
     """,

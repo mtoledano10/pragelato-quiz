@@ -11,6 +11,9 @@ from data.questions import QUESTIONS
 ROOT = Path(__file__).parent
 UPLOADS_DIR = ROOT / "uploads"
 UPLOADS_DIR.mkdir(exist_ok=True)
+ASSETS_DIR = ROOT / "assets"
+HERO_WELCOME = ASSETS_DIR / "hero_sestriere.jpg"
+HERO_HOME = ASSETS_DIR / "village_vialattea.jpg"
 
 init_db()
 
@@ -60,6 +63,12 @@ def finish_quiz():
     go("result")
 
 
+def render_hero(image_path, credit):
+    if image_path.exists():
+        st.image(str(image_path), use_container_width=True)
+        st.caption(credit)
+
+
 # --- Bascule de langue (avant tout le reste pour eviter un flash LTR/RTL) ---
 
 lang_col1, lang_col2 = st.columns([3, 2])
@@ -79,10 +88,52 @@ rtl = st.session_state.lang in RTL_LANGS
 st.markdown(
     f"""
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Noto+Sans+Hebrew:wght@400;600;700;800&display=swap');
+
     header[data-testid="stHeader"] {{ display: none; }}
-    .stApp {{ direction: {"rtl" if rtl else "ltr"}; }}
+
+    html, body, [class*="css"] {{
+        font-family: 'Poppins', 'Noto Sans Hebrew', sans-serif;
+    }}
+
+    .stApp {{
+        direction: {"rtl" if rtl else "ltr"};
+        background: #fdfbf6;
+    }}
+
     .block-container {{ max-width: 560px; padding-top: 2.5rem; }}
-    div.stButton > button {{ width: 100%; border-radius: 999px; font-weight: 700; }}
+
+    h1, h2, h3 {{
+        color: #14181c;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+    }}
+
+    [data-testid="stImage"] img {{
+        border-radius: 20px;
+    }}
+
+    div.stButton > button, div.stFormSubmitButton > button {{
+        width: 100%;
+        border-radius: 999px;
+        font-weight: 700;
+        border: none;
+        background: #0a5a86;
+        color: #ffffff;
+        padding: 0.65rem 1rem;
+    }}
+    div.stButton > button:hover, div.stFormSubmitButton > button:hover {{
+        background: #073f5f;
+        color: #ffffff;
+    }}
+    div.stButton > button[kind*="secondary"], div.stFormSubmitButton > button[kind*="secondary"] {{
+        background: #f0e6cf;
+        color: #14181c;
+    }}
+    div.stButton > button[kind*="secondary"]:hover, div.stFormSubmitButton > button[kind*="secondary"]:hover {{
+        background: #e4d6ae;
+        color: #14181c;
+    }}
     </style>
     """,
     unsafe_allow_html=True,
@@ -96,6 +147,7 @@ st.divider()
 # --- Ecrans ---
 
 if st.session_state.screen == "nickname":
+    render_hero(HERO_WELCOME, "📷 Sestriere, Via Lattea — ChiaVB, Wikimedia Commons (CC BY-SA 3.0)")
     st.markdown(f"## {tt('welcome_title')}")
     st.write(tt("welcome_subtitle"))
     with st.form("nickname_form"):
@@ -109,6 +161,7 @@ if st.session_state.screen == "nickname":
                 st.warning(tt("nickname_required"))
 
 elif st.session_state.screen == "home":
+    render_hero(HERO_HOME, "📷 Via Lattea — Smt42, Wikimedia Commons (CC BY-SA 4.0)")
     st.markdown(f"## {tt('home_greeting', name=st.session_state.nickname)}")
     st.write(tt("home_subtitle"))
 

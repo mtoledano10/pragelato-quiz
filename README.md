@@ -46,6 +46,21 @@ GitHub (quelques dizaines de secondes).
 - **Galerie photo** : chacun peut ajouter une photo (avec legende) depuis son telephone,
   visible par tous les participants.
 
+## Design et photos
+
+L'interface reprend des codes visuels inspires de clubmed.co.il (fond clair, boutons
+entierement arrondis, bleu marine + creme, typographie Poppins/Noto Sans Hebrew).
+
+Les photos d'illustration dans [`assets/`](assets/) sont temporaires (libres de droits,
+Wikimedia Commons, licence CC BY-SA - credit affiche sous chaque photo dans l'appli) :
+- `hero_sestriere.jpg` - Sestriere, Via Lattea, photo de ChiaVB (CC BY-SA 3.0)
+- `village_vialattea.jpg` - Via Lattea, photo de Smt42 (CC BY-SA 4.0)
+
+Pour les remplacer par de vraies photos du village (officielles Club Med ou prises sur place) :
+renommer les nouveaux fichiers a l'identique (`hero_sestriere.jpg` et `village_vialattea.jpg`)
+dans le dossier `assets/`, ou modifier les chemins `HERO_WELCOME` / `HERO_HOME` dans
+[`app.py`](app.py). Adapter aussi la legende de credit photo dans le meme fichier.
+
 ## Donnees
 
 Les scores sont stockes dans `data/store.db` (SQLite) et les photos dans `uploads/`, sur le

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import streamlit as st
 
-from data.db import add_photo, add_score, get_leaderboard, get_photos, init_db
+from data.db import add_comment, add_photo, add_score, get_comments, get_leaderboard, get_photos, init_db
 from data.i18n import RTL_LANGS, t
 from data.itinerary import ITINERARY_DAYS, ITINERARY_NOTES
 from data.questions import QUESTIONS
@@ -342,15 +342,32 @@ elif st.session_state.screen == "gallery":
     if not photos:
         st.info(tt("gallery_empty"))
     else:
-        cols = st.columns(2)
-        for i, p in enumerate(photos):
-            with cols[i % 2]:
-                img_path = UPLOADS_DIR / p["filename"]
-                if img_path.exists():
-                    st.image(str(img_path), use_container_width=True)
-                if p["caption"]:
-                    st.caption(p["caption"])
-                st.caption(tt("gallery_by", name=p["nickname"]))
+        for p in photos:
+            st.divider()
+            img_path = UPLOADS_DIR / p["filename"]
+            if img_path.exists():
+                st.image(str(img_path), use_container_width=True)
+            if p["caption"]:
+                st.caption(p["caption"])
+            st.caption(tt("gallery_by", name=p["nickname"]))
+
+            for c in get_comments(p["id"]):
+                st.markdown(f"💬 **{c['nickname']}** — {c['text']}")
+
+            with st.form(f"comment_form_{p['id']}", clear_on_submit=True, border=False):
+                comment_col1, comment_col2 = st.columns([4, 1])
+                with comment_col1:
+                    comment_text = st.text_input(
+                        tt("comment_placeholder"),
+                        placeholder=tt("comment_placeholder"),
+                        label_visibility="collapsed",
+                        key=f"comment_input_{p['id']}",
+                    )
+                with comment_col2:
+                    comment_submitted = st.form_submit_button(tt("comment_submit"), use_container_width=True)
+                if comment_submitted and comment_text.strip():
+                    add_comment(p["id"], st.session_state.nickname or "Anonyme", comment_text.strip())
+                    st.rerun()
 
     st.write("")
     if st.button(tt("back_btn"), key="gallery_back"):

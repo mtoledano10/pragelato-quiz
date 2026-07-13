@@ -37,6 +37,17 @@ def init_db():
             )
             """
         )
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS comments (
+                id TEXT PRIMARY KEY,
+                photo_id TEXT NOT NULL,
+                nickname TEXT NOT NULL,
+                text TEXT NOT NULL,
+                created_at TEXT NOT NULL
+            )
+            """
+        )
 
 
 def add_score(nickname, category, score, total):
@@ -87,5 +98,28 @@ def get_photos(limit=200):
     with get_connection() as conn:
         rows = conn.execute(
             "SELECT * FROM photos ORDER BY created_at DESC LIMIT ?", (limit,)
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+
+def add_comment(photo_id, nickname, text):
+    with get_connection() as conn:
+        conn.execute(
+            "INSERT INTO comments (id, photo_id, nickname, text, created_at) VALUES (?, ?, ?, ?, ?)",
+            (
+                str(uuid.uuid4()),
+                photo_id,
+                nickname[:30],
+                text[:300],
+                datetime.now(timezone.utc).isoformat(),
+            ),
+        )
+
+
+def get_comments(photo_id, limit=100):
+    with get_connection() as conn:
+        rows = conn.execute(
+            "SELECT * FROM comments WHERE photo_id = ? ORDER BY created_at ASC LIMIT ?",
+            (photo_id, limit),
         ).fetchall()
         return [dict(r) for r in rows]

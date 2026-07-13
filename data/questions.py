@@ -447,6 +447,58 @@ QUESTIONS = [
             "he": "שתי בריכות מחוממות (חיצונית ופנימית מתחת לחלון זכוכית) מאפשרות ליהנות מרחצה גם בהרים.",
         },
     },
+    {
+        "id": "v22",
+        "category": "village",
+        "question": {
+            "fr": "Un client demande s'il existe une taxe de sejour en Italie. Que lui repondez-vous ?",
+            "he": "לקוח שואל אם יש מס תיירות באיטליה. מה עונים לו?",
+        },
+        "options": {
+            "fr": [
+                "Non, il n'y a aucune taxe de sejour en Italie.",
+                "Oui : les clients de plus de 12 ans paient une taxe municipale de 4 euros par personne et par nuit, dans la limite de 10 nuits, prelevee par le Club Med a l'arrivee.",
+                "Oui, mais uniquement pour les clients residant hors Union europeenne.",
+            ],
+            "he": [
+                "לא, אין מס תיירות באיטליה.",
+                "כן: אורחים מעל גיל 12 משלמים מס עירוני של 4 אירו לאדם ללילה, עד 10 לילות לכל היותר, שנגבה על ידי קלאב מד בעת ההגעה.",
+                "כן, אך רק עבור אורחים שאינם תושבי האיחוד האירופי.",
+            ],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "La taxe de sejour (4 euros/pers./nuit, plafonnee a 10 nuits, pour les plus de 12 ans) est collectee directement par le Club Med a l'arrivee.",
+            "he": "מס התיירות (4 אירו לאדם ללילה, עד 10 לילות, לאורחים מעל גיל 12) נגבה ישירות על ידי קלאב מד בעת ההגעה.",
+        },
+    },
+    {
+        "id": "v23",
+        "category": "village",
+        "question": {
+            "fr": "Comment se nomme le village Club Med de Pragelato ?",
+            "he": "איך נקרא הכפר של קלאב מד בפראג'לאטו?",
+        },
+        "options": {
+            "fr": [
+                "Pragelato",
+                "Pragelato Sestriere",
+                "Pragelato San Bernardo",
+                "Les trois noms ci-dessus sont utilises",
+            ],
+            "he": [
+                "פראג'לאטו",
+                "פראג'לאטו ססטריירה",
+                "פראג'לאטו סן ברנרדו",
+                "כל שלושת השמות לעיל בשימוש",
+            ],
+        },
+        "answer_index": 3,
+        "fun_fact": {
+            "fr": "Le village est designe par plusieurs appellations selon les supports : Pragelato, Pragelato Sestriere, et Pragelato San Bernardo.",
+            "he": "הכפר מכונה במספר שמות בהתאם למקור: פראג'לאטו, פראג'לאטו ססטריירה, ופראג'לאטו סן ברנרדו.",
+        },
+    },
     # --- Ville de Turin ---
     {
         "id": "t1",

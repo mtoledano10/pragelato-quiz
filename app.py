@@ -113,7 +113,7 @@ st.markdown(
         border-radius: 20px;
     }}
 
-    div.stButton > button, div.stFormSubmitButton > button {{
+    div.stButton > button, div.stFormSubmitButton > button, div.stLinkButton > a {{
         width: 100%;
         border-radius: 999px;
         font-weight: 700;
@@ -121,8 +121,11 @@ st.markdown(
         background: #0a5a86;
         color: #ffffff;
         padding: 0.65rem 1rem;
+        text-align: center;
+        text-decoration: none;
+        justify-content: center;
     }}
-    div.stButton > button:hover, div.stFormSubmitButton > button:hover {{
+    div.stButton > button:hover, div.stFormSubmitButton > button:hover, div.stLinkButton > a:hover {{
         background: #073f5f;
         color: #ffffff;
     }}
@@ -179,6 +182,14 @@ elif st.session_state.screen == "home":
 
     if st.button(f"📸 {tt('card_gallery_title')}", use_container_width=True, key="btn_gallery"):
         go("gallery")
+
+    st.write("")
+    st.markdown(f"#### {tt('videos_title')}")
+    vid_col1, vid_col2 = st.columns(2)
+    with vid_col1:
+        st.link_button(tt("video_winter"), "https://youtu.be/X19uE3Zd9E0", use_container_width=True)
+    with vid_col2:
+        st.link_button(tt("video_summer"), "https://youtu.be/vZjeXf-52bE", use_container_width=True)
 
     st.write("")
     if st.button(tt("change_nickname"), key="btn_change_nick"):

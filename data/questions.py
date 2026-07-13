@@ -499,6 +499,227 @@ QUESTIONS = [
             "he": "הכפר מכונה במספר שמות בהתאם למקור: פראג'לאטו, פראג'לאטו ססטריירה, ופראג'לאטו סן ברנרדו.",
         },
     },
+    {
+        "id": "v24",
+        "category": "village",
+        "question": {
+            "fr": "Comment s'appelle le restaurant principal du Resort ?",
+            "he": "איך נקראת המסעדה הראשית של הריזורט?",
+        },
+        "options": {
+            "fr": ["Il Piemonte", "La Trattoria", "Casa Mollino", "La Tana"],
+            "he": ["איל פיימונטה (Il Piemonte)", "לה טראטוריה", "קאזה מולינו", "לה טאנה"],
+        },
+        "answer_index": 0,
+        "fun_fact": {
+            "fr": "Il Piemonte marie le coeur culinaire italien a des influences internationales : pates faites main, charcuterie piemontaise, desserts artisanaux.",
+            "he": "איל פיימונטה משלבת את לב המטבח האיטלקי עם השפעות בין-לאומיות: פסטה עשויה ביד, נקניקים פיימונטיים וקינוחים תוצרת בית.",
+        },
+    },
+    {
+        "id": "v25",
+        "category": "village",
+        "question": {
+            "fr": "A quelle altitude se trouve le restaurant d'altitude Casa Mollino ?",
+            "he": "באיזה גובה נמצאת מסעדת הגובה קאזה מולינו?",
+        },
+        "options": {
+            "fr": ["1 600 m", "2 000 m", "2 300 m", "2 800 m"],
+            "he": ["1,600 מ'", "2,000 מ'", "2,300 מ'", "2,800 מ'"],
+        },
+        "answer_index": 2,
+        "fun_fact": {
+            "fr": "Casa Mollino, ouvert de decembre a mars, offre une vue panoramique sur les pistes de Sauze d'Oulx.",
+            "he": "קאזה מולינו, הפתוחה מדצמבר עד מרץ, מציעה נוף פנורמי למסלולי סאוזה ד'אולקס.",
+        },
+    },
+    {
+        "id": "v26",
+        "category": "village",
+        "question": {
+            "fr": "Quelle marque prestigieuse propose les soins du Club Med Spa du Resort ?",
+            "he": "איזו מותג יוקרתי מציע את הטיפולים בספא של קלאב מד בריזורט?",
+        },
+        "options": {
+            "fr": ["Payot", "Clarins", "La Prairie", "Decleor"],
+            "he": ["פאיו (Payot)", "קלרינס", "לה פרירי", "דקלאור"],
+        },
+        "answer_index": 0,
+        "fun_fact": {
+            "fr": "Payot, marque francaise nee il y a pres de 100 ans, est a l'origine de la gymnastique faciale.",
+            "he": "פאיו, מותג צרפתי בן כמעט 100 שנה, פיתחה את שיטת התעמלות הפנים.",
+        },
+    },
+    {
+        "id": "v27",
+        "category": "village",
+        "question": {
+            "fr": "A partir de quel age un enfant peut-il suivre des cours de ski en groupe ?",
+            "he": "מאיזה גיל ילד יכול להשתתף בשיעורי סקי קבוצתיים?",
+        },
+        "options": {
+            "fr": ["2 ans", "4 ans", "6 ans", "8 ans"],
+            "he": ["2", "4", "6", "8"],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Les cours de ski en groupe sont accessibles des 4 ans, le snowboard des 8 ans.",
+            "he": "שיעורי סקי קבוצתיים נגישים מגיל 4, וסנובורד מגיל 8.",
+        },
+    },
+    {
+        "id": "v28",
+        "category": "village",
+        "question": {
+            "fr": "Comment s'appelle le mini club pour les enfants de 4 a 10 ans ?",
+            "he": "איך נקרא מועדון הילדים לגילאי 4 עד 10?",
+        },
+        "options": {
+            "fr": ["Petit Club Med", "Mini Club Med", "Teens Club Med", "Lo Spazio"],
+            "he": ["פטי קלאב מד", "מיני קלאב מד", "טינס קלאב מד", "לו ספציו"],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Le Petit Club Med accueille les 2-3 ans, le Mini Club Med les 4-10 ans, et le Teens Club Med les 11-13 ans.",
+            "he": "פטי קלאב מד מיועד לגילאי 2-3, מיני קלאב מד לגילאי 4-10, וטינס קלאב מד לגילאי 11-13.",
+        },
+    },
+    {
+        "id": "v29",
+        "category": "village",
+        "question": {
+            "fr": "Quel aeroport est le plus proche du Resort ?",
+            "he": "איזה שדה תעופה הכי קרוב לריזורט?",
+        },
+        "options": {
+            "fr": ["Milan-Linate", "Turin-Caselle", "Geneve-Cointrin", "Milan-Bergame"],
+            "he": ["מילאנו-לינאטה", "טורינו-קאסלה", "ג'נבה-קואינטרין", "מילאנו-ברגמו"],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "L'aeroport de Turin-Caselle est a environ 105 minutes du Resort, le plus proche parmi les aeroports desservis.",
+            "he": "שדה התעופה טורינו-קאסלה נמצא כ-105 דקות מהריזורט, הקרוב ביותר מבין שדות התעופה המשרתים אותו.",
+        },
+    },
+    {
+        "id": "v30",
+        "category": "village",
+        "question": {
+            "fr": "Quels sont les horaires standards d'arrivee (check-in) au Resort ?",
+            "he": "מהן שעות ההגעה (צ'ק-אין) הרגילות לריזורט?",
+        },
+        "options": {
+            "fr": ["10h-14h", "12h-16h", "16h-20h", "18h-22h"],
+            "he": ["10:00-14:00", "12:00-16:00", "16:00-20:00", "18:00-22:00"],
+        },
+        "answer_index": 2,
+        "fun_fact": {
+            "fr": "L'arrivee standard se fait entre 16h et 20h, le depart avant 10h.",
+            "he": "ההגעה הרגילה היא בין 16:00 ל-20:00, והעזיבה עד 10:00.",
+        },
+    },
+    {
+        "id": "v31",
+        "category": "village",
+        "question": {
+            "fr": "A partir de quel age un enfant peut-il faire de la randonnee (hiking) au Resort en ete ?",
+            "he": "מאיזה גיל ילד יכול להשתתף בטיולי הליכה (hiking) בריזורט בקיץ?",
+        },
+        "options": {
+            "fr": ["Aucun age minimum", "3 ans", "6 ans", "11 ans"],
+            "he": ["ללא גיל מינימום", "3", "6", "11"],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "La randonnee est accessible des 3 ans, le velo (biking) des 11 ans.",
+            "he": "הליכה נגישה מגיל 3, ורכיבת אופניים (biking) מגיל 11.",
+        },
+    },
+    {
+        "id": "v32",
+        "category": "village",
+        "question": {
+            "fr": "A partir de quel age peut-on faire de l'equitation (horseriding) en ete ?",
+            "he": "מאיזה גיל ניתן לרכוב על סוסים (הרכבה) בקיץ?",
+        },
+        "options": {
+            "fr": ["4 ans", "6 ans", "8 ans", "12 ans"],
+            "he": ["4", "6", "8", "12"],
+        },
+        "answer_index": 2,
+        "fun_fact": {
+            "fr": "L'equitation, proposee sur demande, est accessible des 8 ans.",
+            "he": "רכיבה על סוסים, לפי דרישה, נגישה מגיל 8.",
+        },
+    },
+    {
+        "id": "v33",
+        "category": "village",
+        "question": {
+            "fr": "Quelle piscine du Resort n'est ouverte qu'en ete ?",
+            "he": "איזו בריכה בריזורט פתוחה רק בקיץ?",
+        },
+        "options": {
+            "fr": ["La piscine interieure", "La piscine exterieure", "Les deux", "Aucune des deux"],
+            "he": ["הבריכה הפנימית", "הבריכה החיצונית", "שתיהן", "אף אחת"],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "La piscine exterieure est au coeur du Resort, pres de la pataugeoire enfants ; la piscine interieure, elle, est chauffee et ouverte toute l'annee (sauf le dimanche en hiver).",
+            "he": "הבריכה החיצונית ממוקמת בלב הריזורט, ליד בריכת הפעוטות; הבריכה הפנימית מחוממת ופתוחה כל השנה (חוץ מימי ראשון בחורף).",
+        },
+    },
+    {
+        "id": "v34",
+        "category": "village",
+        "question": {
+            "fr": "Quelle excursion proposee sur demande comprend un pont suspendu de style aventure ?",
+            "he": "איזה טיול מוצע לפי דרישה כולל גשר תלוי בסגנון הרפתקה?",
+        },
+        "options": {
+            "fr": ["Fenestrelle", "Le pont tibetain", "Les mines de talc de Prali", "Le parc aventure Chaberton"],
+            "he": ["פנסטרלה", "הגשר הטיבטי", "מכרות הטלק של פראלי", "פארק ההרפתקאות שברטון"],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Le pont tibetain fait partie des excursions \"sens de l'aventure\" proposees sur demande.",
+            "he": "הגשר הטיבטי הוא חלק מהטיולים בקטגוריית \"תחושת הרפתקה\", לפי דרישה.",
+        },
+    },
+    {
+        "id": "v35",
+        "category": "village",
+        "question": {
+            "fr": "Quelle excursion culturelle proposee sur demande est un immense ouvrage fortifie des Alpes ?",
+            "he": "איזה טיול תרבותי המוצע לפי דרישה הוא ביצור עצום באלפים?",
+        },
+        "options": {
+            "fr": ["Une visite de Venise", "Fenestrelle", "Le Colisee de Rome", "Les chutes du Rhin"],
+            "he": ["ביקור בוונציה", "פנסטרלה", "הקולוסיאום ברומא", "מפלי הריין"],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Fenestrelle, l'un des plus grands ouvrages fortifies d'Europe, est l'une des excursions culturelles proposees sur demande.",
+            "he": "פנסטרלה, אחת המצודות הגדולות באירופה, היא אחד מהטיולים התרבותיים המוצעים לפי דרישה.",
+        },
+    },
+    {
+        "id": "v36",
+        "category": "village",
+        "question": {
+            "fr": "Que propose specifiquement Club Med Israel a Pragelato en aout 2026 ?",
+            "he": "מה קלאב מד ישראל מציע במיוחד בפראג'לאטו באוגוסט 2026?",
+        },
+        "options": {
+            "fr": ["Un moniteur de ski", "Un moniteur de golf", "Un moniteur parlant hebreu au Mini Club"],
+            "he": ["מדריך סקי", "מדריך גולף", "מדריך דובר עברית במיני קלאב"],
+        },
+        "answer_index": 2,
+        "fun_fact": {
+            "fr": "Un moniteur parlant hebreu est present au Mini Club pour la periode d'aout 2026, une exclusivite Club Med Israel.",
+            "he": "מדריך דובר עברית נמצא במיני קלאב לתקופת אוגוסט 2026 - בלעדיות של קלאב מד ישראל.",
+        },
+    },
     # --- Ville de Turin ---
     {
         "id": "t1",

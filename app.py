@@ -192,6 +192,14 @@ elif st.session_state.screen == "home":
         st.link_button(tt("video_summer"), "https://youtu.be/vZjeXf-52bE", use_container_width=True)
 
     st.write("")
+    st.markdown(f"#### {tt('docs_title')}")
+    doc_col1, doc_col2 = st.columns(2)
+    with doc_col1:
+        st.link_button(tt("doc_winter"), "https://factsheets.clubmed/en-gb/factsheet_prac_winter.pdf", use_container_width=True)
+    with doc_col2:
+        st.link_button(tt("doc_summer"), "https://factsheets.clubmed/en-gb/factsheet_prac_summer.pdf", use_container_width=True)
+
+    st.write("")
     if st.button(tt("change_nickname"), key="btn_change_nick"):
         go("nickname")
 

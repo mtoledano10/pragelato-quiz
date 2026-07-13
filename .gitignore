@@ -1,4 +1,7 @@
-node_modules/
-data/store.json
+__pycache__/
+*.pyc
+pyenv/
+.venv/
+data/store.db
 uploads/*
 !uploads/.gitkeep

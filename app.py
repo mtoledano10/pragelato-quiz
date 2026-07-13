@@ -1,5 +1,6 @@
 import random
 import uuid
+from datetime import date
 from pathlib import Path
 
 import streamlit as st
@@ -15,6 +16,7 @@ UPLOADS_DIR.mkdir(exist_ok=True)
 ASSETS_DIR = ROOT / "assets"
 HERO_WELCOME = ASSETS_DIR / "hero_sestriere.jpg"
 HERO_HOME = ASSETS_DIR / "village_vialattea.jpg"
+TRIP_YEAR = 2026
 
 init_db()
 
@@ -145,6 +147,7 @@ st.markdown(
 
 with lang_col1:
     st.markdown(f"### {tt('app_title')}")
+    st.caption(tt("app_subtitle"))
 
 st.divider()
 
@@ -215,9 +218,14 @@ elif st.session_state.screen == "itinerary":
     for note in ITINERARY_NOTES[lang]:
         st.markdown(f"- {note}")
 
+    today = date.today()
     for day in ITINERARY_DAYS:
         st.divider()
-        st.markdown(f"### {day['day_name'][lang]} | {day['date']}")
+        day_num, month_num = (int(x) for x in day["date"].split("."))
+        header = f"### {day['day_name'][lang]} | {day['date']}"
+        if today == date(TRIP_YEAR, month_num, day_num):
+            header += f" &nbsp; {tt('today_badge')}"
+        st.markdown(header)
         for item in day["items"]:
             st.markdown(f"**{item['time']}** — {item[lang]}")
 

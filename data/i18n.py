@@ -1,6 +1,7 @@
 I18N = {
     "fr": {
         "app_title": "🏔️ Pragelato & Turin",
+        "app_subtitle": "Educational Pragelato · 14-16.07.2026",
         "welcome_title": "Bienvenue !",
         "welcome_subtitle": "Un petit quiz pour decouvrir le village et la ville de Turin, entre collegues.",
         "nickname_label": "Choisis un pseudo",
@@ -28,6 +29,7 @@ I18N = {
         "card_itinerary_sub": "Le planning du voyage",
         "itinerary_title": "📅 Programme du voyage",
         "itinerary_notes_title": "A savoir avant de partir",
+        "today_badge": "🔴 Aujourd'hui",
         "change_nickname": "Changer de pseudo",
         "quiz_progress": "Question {current} / {total}",
         "quiz_next": "Suivant",
@@ -63,6 +65,7 @@ I18N = {
     },
     "he": {
         "app_title": "🏔️ פראג'לאטו וטורינו",
+        "app_subtitle": "Educational פראג'לאטו · 14.07-16.07.2026",
         "welcome_title": "ברוכים הבאים!",
         "welcome_subtitle": "חידון קטן להכרות עם הכפר ועם העיר טורינו, בין עמיתים לעבודה.",
         "nickname_label": "בחרו כינוי",
@@ -90,6 +93,7 @@ I18N = {
         "card_itinerary_sub": "התוכנית של הנסיעה",
         "itinerary_title": "📅 לוח הזמנים של הנסיעה",
         "itinerary_notes_title": "דגשים חשובים",
+        "today_badge": "🔴 היום",
         "change_nickname": "החלפת כינוי",
         "quiz_progress": "שאלה {current} מתוך {total}",
         "quiz_next": "הבא",

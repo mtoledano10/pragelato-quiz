@@ -43,13 +43,13 @@ QUESTIONS = [
             "he": "באיזה גובה בקירוב נמצא הכפר?",
         },
         "options": {
-            "fr": ["1 200 m", "1 600 m", "2 200 m", "2 800 m"],
-            "he": ["1,200 מ'", "1,600 מ'", "2,200 מ'", "2,800 מ'"],
+            "fr": ["1 000 m", "1 350 m", "1 800 m", "2 200 m"],
+            "he": ["1,000 מ'", "1,350 מ'", "1,800 מ'", "2,200 מ'"],
         },
         "answer_index": 1,
         "fun_fact": {
-            "fr": "Le village est niche a 1 600 metres, au calme dans sa vallee.",
-            "he": "הכפר שוכן בגובה 1,600 מטר, בשקט עמקו.",
+            "fr": "Le village est niche a 1 350 metres, au calme dans sa vallee.",
+            "he": "הכפר שוכן בגובה 1,350 מטר, בשקט עמקו.",
         },
     },
     {
@@ -220,6 +220,131 @@ QUESTIONS = [
         "fun_fact": {
             "fr": "Le Piemont est aussi la region de Turin, sa capitale.",
             "he": "פיימונטה הוא גם האזור שבו נמצאת טורינו, בירתו.",
+        },
+    },
+    {
+        "id": "v13",
+        "category": "village",
+        "question": {
+            "fr": "Quelle est la particularite architecturale majeure de Pragelato qui le distingue de la majorite des autres Resorts des Alpes ?",
+            "he": "מהו המאפיין האדריכלי הבולט של פראג'לאטו שמבדל אותו מרוב אתרי הסקי האחרים באלפים?",
+        },
+        "options": {
+            "fr": [
+                "C'est une grande tour moderne et connectee au pied des pistes.",
+                "C'est un ensemble de chalets traditionnels en bois et pierre organises comme un hameau piemontais autour d'une place centrale (la Piazza).",
+                "C'est un ancien palace historique du XIXe siecle entierement renove.",
+            ],
+            "he": [
+                "מגדל מודרני וגדול, מחובר לתחתית המסלולים.",
+                "מכלול של צ'אלטים מסורתיים מעץ ואבן, בנויים כמו כפר פיימונטי סביב כיכר מרכזית (הפיאצה).",
+                "ארמון היסטורי מהמאה ה-19 שעבר שיפוץ מלא.",
+            ],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Le village reprend les codes d'un hameau piemontais authentique, avec ses chalets en bois et pierre autour de la Piazza centrale.",
+            "he": "הכפר מאמץ את הסגנון של כפר פיימונטי אותנטי, עם צ'אלטים מעץ ואבן סביב הפיאצה המרכזית.",
+        },
+    },
+    {
+        "id": "v14",
+        "category": "village",
+        "question": {
+            "fr": "Un client s'inquiete : \"Le village est a 1350m d'altitude, j'ai peur du manque de neige en fin de saison.\" Quelle est la meilleure reponse technique ?",
+            "he": "לקוח מודאג: \"הכפר נמצא בגובה 1,350 מ', אני חושש ממחסור בשלג בסוף העונה.\" מהי התשובה הטכנית הטובה ביותר?",
+        },
+        "options": {
+            "fr": [
+                "Le village dispose d'une piste interieure enneigee artificiellement en cas de redoux.",
+                "Bien que le village soit a 1350m, la telecabine de Pattemouche monte directement au domaine de la Via Lattea dont les pistes culminent a plus de 2800m d'altitude.",
+                "Le Club Med propose un transfert gratuit en bus vers Val Thorens si la neige vient a manquer.",
+            ],
+            "he": [
+                "בכפר יש מסלול פנימי מושלג באופן מלאכותי למקרה של התחממות.",
+                "למרות שהכפר נמצא בגובה 1,350 מ', הרכבל של פאטמוש עולה ישירות לתחום הסקי ויה לאטאה, שמסלוליו מגיעים לגובה של יותר מ-2,800 מ'.",
+                "קלאב מד מציע העברה חינם באוטובוס לוואל תורנס אם השלג אכן חסר.",
+            ],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "La telecabine de Pattemouche relie le village directement aux pistes d'altitude de la Via Lattea, jusqu'a plus de 2800m.",
+            "he": "הרכבל של פאטמוש מחבר את הכפר ישירות למסלולי הגובה של ויה לאטאה, עד ליותר מ-2,800 מ'.",
+        },
+    },
+    {
+        "id": "v15",
+        "category": "village",
+        "question": {
+            "fr": "Quel avantage exclusif lie a la restauration pouvez-vous vendre a un skieur intensif qui ne veut pas redescendre au Resort pour le dejeuner ?",
+            "he": "איזה יתרון בלעדי הקשור להסעדה אפשר למכור לגולש אינטנסיבי שלא רוצה לרדת לריזורט בשביל ארוחת הצהריים?",
+        },
+        "options": {
+            "fr": [
+                "Un panier pique-nique gastronomique prepare chaque matin par le Chef.",
+                "L'acces inclus dans la formule All-Inclusive a un restaurant d'altitude partenaire situe directement sur les pistes de Sestriere.",
+                "Un bon de reduction de 10% dans tous les restaurants de la station de Sestriere.",
+            ],
+            "he": [
+                "סל פיקניק גורמה שהשף מכין כל בוקר.",
+                "גישה הכלולה בחבילת האול-אינקלוסיב למסעדת גובה שותפה, הממוקמת ישירות על מסלולי ססטריירה.",
+                "שובר הנחה של 10% בכל מסעדות אתר ססטריירה.",
+            ],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "L'acces au restaurant d'altitude partenaire sur les pistes de Sestriere est inclus dans la formule All-Inclusive, sans avoir a redescendre au village.",
+            "he": "הגישה למסעדת הגובה השותפה על מסלולי ססטריירה כלולה בחבילת האול-אינקלוסיב, בלי צורך לרדת לכפר.",
+        },
+    },
+    {
+        "id": "v16",
+        "category": "village",
+        "question": {
+            "fr": "Sur quel domaine skiable international skient les clients sejournant a Pragelato Sestriere ?",
+            "he": "באיזה תחום סקי בין-לאומי סקיים הלקוחות השוהים בפראג'לאטו ססטריירה?",
+        },
+        "options": {
+            "fr": [
+                "Le domaine de Paradiski.",
+                "Le domaine des Trois Vallees.",
+                "Le domaine de la Via Lattea (La Voie Lactee), qui relie la France et l'Italie avec 400 km de pistes.",
+            ],
+            "he": [
+                "תחום פאראדיסקי.",
+                "תחום שלושת העמקים (Trois Vallees).",
+                "תחום ויה לאטאה (שביל החלב), המחבר בין צרפת לאיטליה ומשתרע על פני 400 ק\"מ של מסלולים.",
+            ],
+        },
+        "answer_index": 2,
+        "fun_fact": {
+            "fr": "La Via Lattea relie plusieurs stations italiennes et rejoint la frontiere francaise, pour environ 400 km de pistes.",
+            "he": "ויה לאטאה מחבר בין כמה אתרי סקי איטלקיים ומגיע עד לגבול הצרפתי, על פני כ-400 ק\"מ של מסלולים.",
+        },
+    },
+    {
+        "id": "v17",
+        "category": "village",
+        "question": {
+            "fr": "Quel est l'argument d'upselling principal pour faire passer une famille d'une Chambre Superieure a une Suite ?",
+            "he": "מהו טיעון ה-upselling העיקרי כדי לשכנע משפחה לשדרג מחדר סופריור לסוויטה?",
+        },
+        "options": {
+            "fr": [
+                "Les Suites offrent un espace de 64 m2 minimum en Duplex, le petit-dejeuner servi en chambre inclus, et des reservations prioritaires aux restaurants de specialites.",
+                "Les Suites sont les seules chambres equipees de televisions connectees.",
+                "Les Suites se situent juste au-dessus du bar principal pour un acces plus rapide aux animations.",
+            ],
+            "he": [
+                "הסוויטות מציעות שטח של 64 מ\"ר לפחות בדופלקס, ארוחת בוקר מוגשת בחדר, והזמנות מועדפות למסעדות המיוחדות.",
+                "הסוויטות הן החדרים היחידים המצוידים בטלוויזיות חכמות.",
+                "הסוויטות ממוקמות ממש מעל הבר הראשי לגישה מהירה יותר לפעילויות.",
+            ],
+        },
+        "answer_index": 0,
+        "fun_fact": {
+            "fr": "Les Suites offrent plus d'espace en duplex (64 m2 minimum), le petit-dejeuner en chambre, et un acces prioritaire aux restaurants de specialites.",
+            "he": "הסוויטות מציעות יותר מרחב בדופלקס (64 מ\"ר לפחות), ארוחת בוקר בחדר, וגישה מועדפת למסעדות המיוחדות.",
         },
     },
     # --- Ville de Turin ---

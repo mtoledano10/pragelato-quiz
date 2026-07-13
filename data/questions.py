@@ -347,6 +347,106 @@ QUESTIONS = [
             "he": "הסוויטות מציעות יותר מרחב בדופלקס (64 מ\"ר לפחות), ארוחת בוקר בחדר, וגישה מועדפת למסעדות המיוחדות.",
         },
     },
+    {
+        "id": "v18",
+        "category": "village",
+        "question": {
+            "fr": "Quelle infrastructure sportive de standing se trouve a proximite immediate a pied du Resort en ete ?",
+            "he": "איזה מתקן ספורט יוקרתי נמצא במרחק הליכה מיידי מהריזורט בקיץ?",
+        },
+        "options": {
+            "fr": [
+                "Un club de voile sur un lac d'altitude.",
+                "Un parcours de Golf 9 trous niche au coeur des montagnes.",
+                "Une piste de bobsleigh d'ete sur herbe.",
+            ],
+            "he": [
+                "מועדון שייט על אגם הררי.",
+                "מגרש גולף בן 9 חורים, השוכן בלב ההרים.",
+                "מסלול בובסלד קיצי על דשא.",
+            ],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Le parcours de Golf 9 trous est accessible a pied depuis le village, au coeur des montagnes.",
+            "he": "מגרש הגולף בן 9 החורים נגיש ברגל מהכפר, בלב ההרים.",
+        },
+    },
+    {
+        "id": "v19",
+        "category": "village",
+        "question": {
+            "fr": "Quel espace exterieur devient le point de ralliement festif et detente des clients au retour des randonnees en ete ?",
+            "he": "איזה מרחב חיצוני הופך לנקודת המפגש החגיגית והמרגיעה של האורחים בחזרה מהטיולים בקיץ?",
+        },
+        "options": {
+            "fr": [
+                "Le solarium de la piscine couverte.",
+                "Le rooftop avec DJ sets face aux montagnes et la terrasse de la Trattoria sur la Piazza.",
+                "L'amphitheatre interieur de Sestriere.",
+            ],
+            "he": [
+                "הסולריום של הבריכה המקורה.",
+                "הרופטופ עם DJ sets מול ההרים, וטרסת הטראטוריה על הפיאצה.",
+                "האמפיתיאטרון הפנימי של ססטריירה.",
+            ],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Le rooftop et la terrasse de la Trattoria sur la Piazza sont le lieu de vie incontournable au retour des randonnees.",
+            "he": "הרופטופ וטרסת הטראטוריה על הפיאצה הם מוקד החיים המרכזי בחזרה מהטיולים.",
+        },
+    },
+    {
+        "id": "v20",
+        "category": "village",
+        "question": {
+            "fr": "Quel grand parc naturel regional, repute pour sa faune sauvage, sert de terrain de jeu principal aux randonnees guidees (incluses) du Club Med ?",
+            "he": "איזה פארק טבע אזורי גדול, הידוע בחיות הבר שבו, משמש כשטח המשחקים העיקרי לטיולים המודרכים (הכלולים) של קלאב מד?",
+        },
+        "options": {
+            "fr": [
+                "Le Parc National de la Vanoise.",
+                "Le Parc Naturel du Gran Bosco di Salbertrand.",
+                "Le Parc National du Grand Paradis.",
+            ],
+            "he": [
+                "הפארק הלאומי דה לה ואנואז (Vanoise).",
+                "הפארק הטבעי גראן בוסקו די סלברטראן (Gran Bosco di Salbertrand).",
+                "הפארק הלאומי גראן פאראדיזו (Gran Paradiso).",
+            ],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Le Parc Naturel du Gran Bosco di Salbertrand est le terrain de jeu principal des randonnees guidees incluses.",
+            "he": "הפארק הטבעי גראן בוסקו די סלברטראן הוא שטח המשחקים המרכזי לטיולים המודרכים הכלולים.",
+        },
+    },
+    {
+        "id": "v21",
+        "category": "village",
+        "question": {
+            "fr": "Quel argument \"confort\" utilisez-vous pour rassurer un client qui craint de ne pas pouvoir profiter de la baignade a la montagne ?",
+            "he": "איזה טיעון \"נוחות\" תשתמשו בו כדי להרגיע לקוח שחושש שלא יוכל ליהנות מרחצה בהרים?",
+        },
+        "options": {
+            "fr": [
+                "Les cours d'aquagym ont lieu uniquement en combinaison thermique.",
+                "Le Resort dispose de deux piscines chauffees : une exterieure avec transats au soleil et une grande piscine interieure sous baie vitree.",
+                "Le Club Med fournit des bouillottes a l'entree des bassins.",
+            ],
+            "he": [
+                "שיעורי האקוואג'ים מתקיימים רק עם חליפת צלילה תרמית.",
+                "בריזורט יש שתי בריכות מחוממות: בריכה חיצונית עם כיסאות שיזוף בשמש, ובריכה פנימית גדולה מתחת לחלון זכוכית גדול.",
+                "קלאב מד מספק בקבוקי חום בכניסה לבריכות.",
+            ],
+        },
+        "answer_index": 1,
+        "fun_fact": {
+            "fr": "Deux piscines chauffees (exterieure et interieure sous baie vitree) permettent de profiter de la baignade meme en altitude.",
+            "he": "שתי בריכות מחוממות (חיצונית ופנימית מתחת לחלון זכוכית) מאפשרות ליהנות מרחצה גם בהרים.",
+        },
+    },
     # --- Ville de Turin ---
     {
         "id": "t1",

@@ -6,6 +6,7 @@ import streamlit as st
 
 from data.db import add_photo, add_score, get_leaderboard, get_photos, init_db
 from data.i18n import RTL_LANGS, t
+from data.itinerary import ITINERARY_DAYS, ITINERARY_NOTES
 from data.questions import QUESTIONS
 
 ROOT = Path(__file__).parent
@@ -168,6 +169,9 @@ elif st.session_state.screen == "home":
     st.markdown(f"## {tt('home_greeting', name=st.session_state.nickname)}")
     st.write(tt("home_subtitle"))
 
+    if st.button(f"📅 {tt('card_itinerary_title')}", use_container_width=True, key="btn_itinerary"):
+        go("itinerary")
+
     col1, col2 = st.columns(2)
     with col1:
         if st.button(f"🏔️ {tt('card_village_title')}", use_container_width=True, key="btn_village"):
@@ -202,6 +206,24 @@ elif st.session_state.screen == "home":
     st.write("")
     if st.button(tt("change_nickname"), key="btn_change_nick"):
         go("nickname")
+
+elif st.session_state.screen == "itinerary":
+    lang = st.session_state.lang
+    st.markdown(f"## {tt('itinerary_title')}")
+
+    st.markdown(f"**{tt('itinerary_notes_title')}**")
+    for note in ITINERARY_NOTES[lang]:
+        st.markdown(f"- {note}")
+
+    for day in ITINERARY_DAYS:
+        st.divider()
+        st.markdown(f"### {day['day_name'][lang]} | {day['date']}")
+        for item in day["items"]:
+            st.markdown(f"**{item['time']}** — {item[lang]}")
+
+    st.write("")
+    if st.button(tt("back_btn"), key="itinerary_back"):
+        go("home")
 
 elif st.session_state.screen == "quiz":
     questions = st.session_state.quiz_questions

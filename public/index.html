@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Pragelato & Turin - Le Quiz</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="topbar-title" data-i18n="appTitle">🏔️ Pragelato &amp; Turin</div>
+    <div class="topbar-right">
+      <div class="lang-switch" id="lang-switch">
+        <button type="button" class="lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="he">עברית</button>
+      </div>
+      <div class="topbar-user" id="topbar-user" hidden></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Ecran pseudo -->
+    <section id="screen-nickname" class="screen">
+      <div class="hero">
+        <div class="hero-emoji">🇮🇹🎿</div>
+        <h1 data-i18n="welcomeTitle">Bienvenue !</h1>
+        <p data-i18n="welcomeSubtitle">Un petit quiz pour decouvrir le village et la ville de Turin, entre collegues.</p>
+      </div>
+      <form id="nickname-form" class="card form">
+        <label for="nickname-input" data-i18n="nicknameLabel">Choisis un pseudo</label>
+        <input id="nickname-input" type="text" data-i18n-placeholder="nicknamePlaceholder" placeholder="Ex: Mika des Neiges" maxlength="30" autocomplete="off" required />
+        <button type="submit" class="btn btn-primary" data-i18n="startBtn">C'est parti !</button>
+      </form>
+    </section>
+
+    <!-- Accueil -->
+    <section id="screen-home" class="screen" hidden>
+      <div class="hero">
+        <h1 id="home-greeting">Salut !</h1>
+        <p data-i18n="homeSubtitle">Qu'est-ce qu'on fait ?</p>
+      </div>
+      <div class="grid-cards">
+        <button class="card card-action" data-action="quiz" data-category="village">
+          <span class="card-emoji">🏔️</span>
+          <span class="card-title" data-i18n="cardVillageTitle">Quiz Village</span>
+          <span class="card-sub" data-i18n="cardVillageSub">Pragelato Vialattea</span>
+        </button>
+        <button class="card card-action" data-action="quiz" data-category="turin">
+          <span class="card-emoji">🏛️</span>
+          <span class="card-title" data-i18n="cardTurinTitle">Quiz Turin</span>
+          <span class="card-sub" data-i18n="cardTurinSub">La ville a decouvrir</span>
+        </button>
+        <button class="card card-action" data-action="quiz" data-category="mix">
+          <span class="card-emoji">🎲</span>
+          <span class="card-title" data-i18n="cardMixTitle">Quiz Mix</span>
+          <span class="card-sub" data-i18n="cardMixSub">Un peu des deux</span>
+        </button>
+        <button class="card card-action" data-action="leaderboard">
+          <span class="card-emoji">🏆</span>
+          <span class="card-title" data-i18n="cardLeaderboardTitle">Classement</span>
+          <span class="card-sub" data-i18n="cardLeaderboardSub">Qui connait le mieux ?</span>
+        </button>
+        <button class="card card-action" data-action="gallery">
+          <span class="card-emoji">📸</span>
+          <span class="card-title" data-i18n="cardGalleryTitle">Galerie photo</span>
+          <span class="card-sub" data-i18n="cardGallerySub">Souvenirs du groupe</span>
+        </button>
+      </div>
+      <button id="change-nickname" class="link-btn" data-i18n="changeNickname">Changer de pseudo</button>
+    </section>
+
+    <!-- Quiz -->
+    <section id="screen-quiz" class="screen" hidden>
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar"><div id="quiz-progress-fill" class="quiz-progress-fill"></div></div>
+        <div id="quiz-progress-label" class="quiz-progress-label"></div>
+      </div>
+      <div class="card quiz-card">
+        <h2 id="quiz-question"></h2>
+        <div id="quiz-options" class="quiz-options"></div>
+        <p id="quiz-funfact" class="quiz-funfact" hidden></p>
+        <button id="quiz-next" class="btn btn-primary" hidden></button>
+      </div>
+      <button id="quiz-quit" class="link-btn" data-i18n="quizQuit">Quitter le quiz</button>
+    </section>
+
+    <!-- Resultat -->
+    <section id="screen-result" class="screen" hidden>
+      <div class="hero">
+        <div class="hero-emoji" id="result-emoji">🎉</div>
+        <h1 id="result-title">Score !</h1>
+        <p id="result-score"></p>
+      </div>
+      <div class="result-actions">
+        <button id="result-retry" class="btn btn-primary" data-i18n="retryBtn">Rejouer</button>
+        <button id="result-home" class="btn btn-secondary" data-i18n="homeBtn">Accueil</button>
+      </div>
+    </section>
+
+    <!-- Classement -->
+    <section id="screen-leaderboard" class="screen" hidden>
+      <h1 data-i18n="leaderboardTitle">🏆 Classement</h1>
+      <div class="tabs" id="leaderboard-tabs">
+        <button class="tab active" data-category="" data-i18n="tabAll">Tout</button>
+        <button class="tab" data-category="village" data-i18n="tabVillage">Village</button>
+        <button class="tab" data-category="turin" data-i18n="tabTurin">Turin</button>
+        <button class="tab" data-category="mix" data-i18n="tabMix">Mix</button>
+      </div>
+      <div id="leaderboard-list" class="list"></div>
+      <button class="link-btn" data-back="home" data-i18n="backBtn">Retour</button>
+    </section>
+
+    <!-- Galerie -->
+    <section id="screen-gallery" class="screen" hidden>
+      <h1 data-i18n="galleryTitle">📸 Galerie photo</h1>
+      <div id="gallery-grid" class="gallery-grid"></div>
+      <button class="link-btn" data-back="home" data-i18n="backBtn">Retour</button>
+    </section>
+
+  </main>
+
+  <button id="fab-add-photo" class="fab" hidden title="Ajouter une photo">+</button>
+
+  <!-- Modal ajout photo -->
+  <div id="photo-modal" class="modal-overlay" hidden>
+    <div class="modal">
+      <h2 data-i18n="addPhotoTitle">Ajouter une photo</h2>
+      <form id="photo-form" class="form">
+        <label for="photo-file" data-i18n="photoLabel">Photo</label>
+        <input id="photo-file" type="file" accept="image/*" capture="environment" required />
+        <label for="photo-caption" data-i18n="captionLabel">Legende (optionnel)</label>
+        <input id="photo-caption" type="text" maxlength="200" data-i18n-placeholder="captionPlaceholder" placeholder="Ex: Vue sur le village au coucher du soleil" />
+        <div class="modal-actions">
+          <button type="button" id="photo-cancel" class="btn btn-secondary" data-i18n="cancelBtn">Annuler</button>
+          <button type="submit" class="btn btn-primary" data-i18n="publishBtn">Publier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

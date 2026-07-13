@@ -24,7 +24,7 @@ st.set_page_config(page_title="Pragelato & Turin - Le Quiz", page_icon="🏔️"
 
 DEFAULTS = {
     "nickname": "",
-    "lang": "fr",
+    "lang": "he",
     "screen": "nickname",
     "quiz_category": "mix",
     "quiz_questions": [],

@@ -1,3 +1,4 @@
+# Traductions de l'interface (FR / HE).
 I18N = {
     "fr": {
         "app_title": "🏔️ Pragelato & Turin",

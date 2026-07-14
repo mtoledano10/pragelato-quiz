@@ -1,3 +1,4 @@
+import json
 import random
 import urllib.parse
 import uuid
@@ -42,12 +43,14 @@ for key, value in DEFAULTS.items():
     if key not in st.session_state:
         st.session_state[key] = value
 
-# Restaure le pseudo depuis le cookie du navigateur si la session est neuve,
-# pour eviter de redemander un pseudo a chaque visite.
+# Restaure le pseudo depuis l'URL (?nick=...) si la session est neuve. Le
+# parametre est lui-meme repris d'un cookie navigateur via le script
+# ci-dessous : st.context.cookies n'est pas fiable derriere le proxy de
+# Streamlit Cloud, donc on passe par une redirection cote client.
 if not st.session_state.nickname:
-    cookie_nickname = st.context.cookies.get(NICKNAME_COOKIE, "")
-    if cookie_nickname:
-        st.session_state.nickname = urllib.parse.unquote(cookie_nickname)
+    query_nickname = st.query_params.get("nick", "")
+    if query_nickname:
+        st.session_state.nickname = query_nickname
         if st.session_state.screen == "nickname":
             st.session_state.screen = "home"
 
@@ -58,6 +61,43 @@ def remember_nickname(nickname):
         f"""
         <script>
         document.cookie = "{NICKNAME_COOKIE}=" + "{encoded}" + ";path=/;max-age=15552000;SameSite=Lax";
+        </script>
+        """,
+        height=0,
+    )
+
+
+def sync_nickname_from_cookie(start_btn_text):
+    # Les iframes de components.html sont "sandboxees" sans droit de
+    # navigation (impossible de rediriger la page parente pour lui passer
+    # le cookie via l'URL). On remplit donc directement le champ pseudo et
+    # on clique sur le bouton depuis le DOM parent (autorise : simple
+    # manipulation DOM same-origin, pas une navigation).
+    components.html(
+        f"""
+        <script>
+        function getCookie(name) {{
+            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? decodeURIComponent(match[2]) : null;
+        }}
+        const nick = getCookie('{NICKNAME_COOKIE}');
+        function tryFill(attempts) {{
+            if (!nick) return;
+            const doc = window.parent.document;
+            const input = doc.querySelector('input[type="text"]');
+            const btn = Array.from(doc.querySelectorAll('button')).find(
+                b => b.textContent.trim() === {json.dumps(start_btn_text)}
+            );
+            if (input && btn) {{
+                const setter = Object.getOwnPropertyDescriptor(window.parent.HTMLInputElement.prototype, 'value').set;
+                setter.call(input, nick);
+                input.dispatchEvent(new Event('input', {{ bubbles: true }}));
+                btn.click();
+            }} else if (attempts > 0) {{
+                setTimeout(() => tryFill(attempts - 1), 150);
+            }}
+        }}
+        tryFill(15);
         </script>
         """,
         height=0,
@@ -198,6 +238,7 @@ if st.session_state.screen == "nickname":
                 go("home")
             else:
                 st.warning(tt("nickname_required"))
+    sync_nickname_from_cookie(tt("start_btn"))
 
 elif st.session_state.screen == "home":
     render_hero(HERO_HOME, "📷 Via Lattea — Smt42, Wikimedia Commons (CC BY-SA 4.0)")

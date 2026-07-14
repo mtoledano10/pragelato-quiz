@@ -54,6 +54,12 @@ if not st.session_state.nickname:
         if st.session_state.screen == "nickname":
             st.session_state.screen = "home"
 
+# Lien de partage d'une photo (?photo=...) : on amene directement a la
+# galerie plutot que sur l'accueil, pour aller droit a la photo partagee.
+SHARED_PHOTO_ID = st.query_params.get("photo")
+if SHARED_PHOTO_ID and st.session_state.nickname and st.session_state.screen in ("nickname", "home"):
+    st.session_state.screen = "gallery"
+
 
 def remember_nickname(nickname):
     encoded = urllib.parse.quote(nickname)
@@ -235,7 +241,7 @@ if st.session_state.screen == "nickname":
         if submitted:
             if nickname.strip():
                 st.session_state.nickname = nickname.strip()
-                go("home")
+                go("gallery" if SHARED_PHOTO_ID else "home")
             else:
                 st.warning(tt("nickname_required"))
     sync_nickname_from_cookie(tt("start_btn"))
@@ -417,8 +423,13 @@ elif st.session_state.screen == "gallery":
     if not photos:
         st.info(tt("gallery_empty"))
     else:
+        if SHARED_PHOTO_ID:
+            photos = sorted(photos, key=lambda p: p["id"] != SHARED_PHOTO_ID)
+
         for p in photos:
             st.divider()
+            if p["id"] == SHARED_PHOTO_ID:
+                st.markdown(f"**{tt('shared_photo_badge')}**")
             img_path = UPLOADS_DIR / p["filename"]
             if img_path.exists():
                 st.image(str(img_path), use_container_width=True)
@@ -426,7 +437,7 @@ elif st.session_state.screen == "gallery":
                 st.caption(p["caption"])
             st.caption(tt("gallery_by", name=p["nickname"]))
 
-            share_text = tt("photo_share_text", name=p["nickname"], url=APP_URL)
+            share_text = tt("photo_share_text", name=p["nickname"], url=f"{APP_URL}?photo={p['id']}")
             wa_url = "https://wa.me/?text=" + urllib.parse.quote(share_text)
             st.link_button(tt("photo_share_btn"), wa_url, use_container_width=True)
 

@@ -1,9 +1,11 @@
 import random
+import urllib.parse
 import uuid
 from datetime import date
 from pathlib import Path
 
 import streamlit as st
+import streamlit.components.v1 as components
 
 from data.db import add_comment, add_photo, add_score, get_comments, get_leaderboard, get_photos, init_db
 from data.i18n import RTL_LANGS, t
@@ -17,6 +19,8 @@ ASSETS_DIR = ROOT / "assets"
 HERO_WELCOME = ASSETS_DIR / "hero_sestriere.jpg"
 HERO_HOME = ASSETS_DIR / "village_vialattea.jpg"
 TRIP_YEAR = 2026
+APP_URL = "https://pragelato-quiz-jbdfyc73yfxkvhgrlnxjdk.streamlit.app/"
+NICKNAME_COOKIE = "pragelato_nickname"
 
 init_db()
 
@@ -38,6 +42,33 @@ for key, value in DEFAULTS.items():
     if key not in st.session_state:
         st.session_state[key] = value
 
+# Restaure le pseudo depuis le cookie du navigateur si la session est neuve,
+# pour eviter de redemander un pseudo a chaque visite.
+if not st.session_state.nickname:
+    cookie_nickname = st.context.cookies.get(NICKNAME_COOKIE, "")
+    if cookie_nickname:
+        st.session_state.nickname = urllib.parse.unquote(cookie_nickname)
+        if st.session_state.screen == "nickname":
+            st.session_state.screen = "home"
+
+
+def remember_nickname(nickname):
+    encoded = urllib.parse.quote(nickname)
+    components.html(
+        f"""
+        <script>
+        document.cookie = "{NICKNAME_COOKIE}=" + "{encoded}" + ";path=/;max-age=15552000;SameSite=Lax";
+        </script>
+        """,
+        height=0,
+    )
+
+
+# Reecrit le cookie a chaque run tant qu'un pseudo est actif : plus fiable
+# qu'un seul appel au moment du submit, qui peut etre coupe par le rerun.
+if st.session_state.nickname:
+    remember_nickname(st.session_state.nickname)
+
 
 def tt(key, **kwargs):
     return t(st.session_state.lang, key, **kwargs)
@@ -50,8 +81,9 @@ def go(screen):
 
 def start_quiz(category):
     pool = QUESTIONS if category == "mix" else [q for q in QUESTIONS if q["category"] == category]
+    count = len(pool) if category in ("village", "turin") else min(8, len(pool))
     st.session_state.quiz_category = category
-    st.session_state.quiz_questions = random.sample(pool, min(8, len(pool)))
+    st.session_state.quiz_questions = random.sample(pool, count)
     st.session_state.quiz_index = 0
     st.session_state.quiz_score = 0
     st.session_state.quiz_answered = False
@@ -321,6 +353,8 @@ elif st.session_state.screen == "leaderboard":
 
 elif st.session_state.screen == "gallery":
     st.markdown(f"## {tt('gallery_title')}")
+    if st.button(tt("back_btn"), key="gallery_back_top"):
+        go("home")
 
     with st.expander(tt("add_photo_title"), expanded=False):
         with st.form("photo_form", clear_on_submit=True):
@@ -350,6 +384,10 @@ elif st.session_state.screen == "gallery":
             if p["caption"]:
                 st.caption(p["caption"])
             st.caption(tt("gallery_by", name=p["nickname"]))
+
+            share_text = tt("photo_share_text", name=p["nickname"], url=APP_URL)
+            wa_url = "https://wa.me/?text=" + urllib.parse.quote(share_text)
+            st.link_button(tt("photo_share_btn"), wa_url, use_container_width=True)
 
             for c in get_comments(p["id"]):
                 st.markdown(f"💬 **{c['nickname']}** — {c['text']}")

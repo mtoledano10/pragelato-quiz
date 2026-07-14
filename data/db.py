@@ -66,15 +66,40 @@ def add_score(nickname, category, score, total):
 
 
 def get_leaderboard(category=None, limit=50):
+    # Ne garde que la meilleure tentative de chaque pseudo, pour eviter qu'une
+    # personne qui rejoue plusieurs fois monopolise le classement.
     with get_connection() as conn:
         if category:
             rows = conn.execute(
-                "SELECT * FROM scores WHERE category = ? ORDER BY (CAST(score AS FLOAT) / total) DESC, created_at DESC LIMIT ?",
+                """
+                SELECT * FROM (
+                    SELECT *, ROW_NUMBER() OVER (
+                        PARTITION BY nickname
+                        ORDER BY (CAST(score AS FLOAT) / total) DESC, created_at ASC
+                    ) AS rn
+                    FROM scores
+                    WHERE category = ?
+                )
+                WHERE rn = 1
+                ORDER BY (CAST(score AS FLOAT) / total) DESC, created_at DESC
+                LIMIT ?
+                """,
                 (category, limit),
             ).fetchall()
         else:
             rows = conn.execute(
-                "SELECT * FROM scores ORDER BY (CAST(score AS FLOAT) / total) DESC, created_at DESC LIMIT ?",
+                """
+                SELECT * FROM (
+                    SELECT *, ROW_NUMBER() OVER (
+                        PARTITION BY nickname
+                        ORDER BY (CAST(score AS FLOAT) / total) DESC, created_at ASC
+                    ) AS rn
+                    FROM scores
+                )
+                WHERE rn = 1
+                ORDER BY (CAST(score AS FLOAT) / total) DESC, created_at DESC
+                LIMIT ?
+                """,
                 (limit,),
             ).fetchall()
         return [dict(r) for r in rows]
